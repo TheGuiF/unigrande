@@ -14,25 +14,88 @@ class PeriodoLetivo(models.Model):
         indexes = (("ano", "semestre"),)
 
 class Professor(models.Model):
-    pass
+    idt_professor: int = fields.IntField(pk=True)
+    matricula_professor: int = fields.IntField()
+    nome_professor: str = fields.CharField()
+    endereco_professor: str = fields.CharField()
+    email_professor: str = fields.CharField()
+
+    class Meta:
+        table = "professores"
+
 
 class Curso(models.Model):
-    pass
+    codigo_curso: int = fields.IntField(pk=True)
+    nome_curso: str = fields.CharField(40)
+    tot_cred: int = fields.IntField()
+    idt_professor: int = fields.IntField(fk=True)
+
+    class Meta:
+        table: "cursos"
 
 class Disciplina(models.Model):
-    pass
+    codigo_disciplina: int = fields.IntField(pk=True)
+    nome_disciplina: str = fields.CharField(50)
+    creditos: int = fields.IntField()
+    tipo_disciplina: str = fieldsCharField()
+    horas_obrigatorias: int = fields.IntField()
+    limite_faltas: int = fields.IntField()
+
+    class Meta:
+        table: "disciplinas"
 
 class Matriz(models.Model):
-    pass
+    codigo_disciplina: int = fields.IntField(fk=True)
+    codigo_curso: int = fields.IntField(fk=True)
+    periodo: int = fields.IntField()
+
+    class Meta:
+        table: "matrizes"
 
 class Turma(models.Model):
-    pass
+    ano: int = fields.IntField(fk=True)
+    semestre: int = fields.IntField(fk=True)
+    codigo_disciplina: int = fields.IntField(fk=True)
+    vagas: int = fields.IntField()
+    idt_professor: int = fields.IntField(fk=True)
+
+    class Meta:
+        table: "turmas"
 
 class Aluno(models.Model):
-    pass
+    matricula_aluno_id: int = fields.IntField(pk=True)
+    nome_aluno: str = fields.CharField(30)
+    tot_cred_aluno: int = fields.IntField(3)
+    data_nascimento: datetime = fields.DateField()
+    mgp_decimal: float = fields.DecimalField(4,2)
+    codigo_curso: int = fields.IntField(fk=True)
+
+    class Meta:
+        table = "alunos"
 
 class Matricula(models.Model):
-    pass
+    ano: int = fields.IntField(fk=True)
+    semestre: int = fields.IntField(fk=True)
+    matricula_aluno_id: int = fields.IntField(fk=True)
+    codigo_disciplina: int = fields.IntField(fk=True)
+    nota_01: float = fields.DecimalField()
+    nota_02: float = fields.DecimalField()
+    nota_03: float = fields.DecimalField()
+    faltas_01: int = fields.IntField()
+    faltas_02: int = fields.IntField()
+    faltas_03: int = fields.IntField()
+
+    class Meta:
+        table: "matriculas"
 
 class Historico(models.Model):
-    pass
+    ano: int = fields.IntField(fk=True)
+    semestre: int = fields.IntField(fk=True)
+    codigo_disciplina: int = fields.IntField(fk=True)
+    matricula_aluno_id: int = fields.IntField(fk=True)
+    situacao: str = fields.CharField()
+    media: float = fields.DecimalField()
+    faltas: int = fields.IntField()
+
+    class Meta:
+        table: "historicos"
