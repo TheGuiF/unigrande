@@ -1,0 +1,7 @@
+pytest==7.4.4   # Testa de forma automatizada a Api
+pytest-cov      # Mostra a quantidade da cobertura de linhas de código testada
+black           # Ele deixa a formatação do projeto (python) padronizado
+isort           # Organiza as importações e as libs em forma alfabéticas
+flake8          # Verifica se existem erros de sintaxe, garantindo códigos mais limpos e menos complexos
+bandit          # Análise e segurança do código
+pytest-asyncio  # Crie testes assincronos, pois a Api trabalha com threads paralelas
