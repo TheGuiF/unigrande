@@ -1,19 +1,19 @@
-aiofiles               # Serve para manipulação de Arquivos, open, r, w, sem bloquear
-aerich                 # serve para fazer o migration, criar nova tabela...
-asyncpg==0.29.0        # Utiliza para fazer conexão com o Postgre
+aiofiles                 # Serve para manipulação de Arquivos, open, r, w, sem bloquear
+aerich          # serve para fazer o migration, criar nova tabela...
+asyncpg==0.29.0 # Utiliza para fazer conexão com o Postgre
 email-validator==2.0.0 # Validar email
-fastapi                 
-gunicorn               # Transação Assincrona
-httpx==0.26.0          # Requisições são http
-passlib[bcrypt]         
-bcrypt<4.0.0            
-pydantic-settings      # Extensão de Configurações do pydantic
-pytest==7.4.4           
-python-dotenv          # Se eu tiver variaveis de ambientes colocadas dentro de .env (variaveis que ficam dentro do linux)
-python-jose            # Validação de criptografia
-python-multipart        
-slowapi                # Ajuda na proteção contra DDoS, limitando por determinado tempo por entrypoint 
-tortoise-orm           # Transformar código python em Banco de Dados
-tomlkit                # Nos ajuda a manipular arquivos do codigo,  
-tomli_w                # preservando comentários
-uvicorn                 
+fastapi   # Defube as "rotas" ou "endpoints" da aplicação
+gunicorn  # Servidor de aplicação, robusto usado em produção.
+httpx==0.26.0            # Requisições são http
+passlib[bcrypt]      # passlib[bcrypt] e bcrypt: São usados para a segurança de senhas.
+bcrypt<4.0.0         # passlib com o algoritmo bcrypt transforma a senha em um "hash"
+pydantic-settings        # Extensão de Configurações do pydantic
+pytest==7.4.4            # Serve para criar testes automatizados que garantem que a API está funcionando como o esperado
+python-dotenv            # Se eu tiver variaveis de ambientes colocadas dentro de .env (variaveis que ficam dentro do linux)
+python-jose          # Validação de criptografia
+python-multipart         # Necessário para que o FastAPI consiga lidar com o upload de arquivos
+slowapi                  # Ajuda na proteção contra DDoS, limitando por determinado tempo por entrypoint 
+tortoise-orm    # Transformar código python em Banco de Dados
+tomlkit                  # Nos ajuda a manipular arquivos do codigo,  
+tomli_w                  # preservando comentários
+uvicorn   # É o servidor que executa a aplicação FastAPI, é um servidor ASGI
