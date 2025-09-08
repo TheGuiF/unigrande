@@ -1,4 +1,4 @@
-from app.models.unigrande import (Aluno, Curso, Disciplina, Historico,
+from backendunigrande.app.models.unigrande import (Aluno, Curso, Disciplina, Historico,
                                   Matricula, Matriz, PeriodoLetivo, Professor,
                                   Turma)
 
