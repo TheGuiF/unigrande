@@ -1,9 +1,13 @@
-echo "Inicializando o Postgresql"
+#!/bin/sh
 
-while ! nc -z db 5432; do
-    sleep 0.1
+echo "Waiting for PostgreSQL..."
+
+# Aguarde até que o banco de dados esteja acessível
+while ! nc -z dbunigrande 5432; do
+  sleep 0.1
 done
 
-echo "PostgreSQL iniciado"
+echo "PostgreSQL started"
 
-echo "$@"
+# Execute o comando principal (como iniciar o servidor)
+exec "$@"
