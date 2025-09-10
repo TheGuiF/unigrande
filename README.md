@@ -14,7 +14,7 @@ chmod +x entrypoint.sh
 
 ### Para rodar o padrão de qualidade código
 
-docker-compose exec backendunigrande /bin/bash
+docker compose exec backendunigrande /bin/bash
 
 # name: Run bandit
    black .
@@ -26,7 +26,7 @@ docker-compose exec backendunigrande /bin/bash
    flake8 .
 
 # acessar o container 
-  docker-compose exec backendunigrande /bin/bash
+  docker compose exec backendunigrande /bin/bash
   
 # Execute o comando para inicializar o aerich no ambiente
    aerich init -t app.config.db.TORTOISE_ORM
@@ -37,15 +37,15 @@ docker-compose exec backendunigrande /bin/bash
 # Para aplicar as migrações no banco de dados
    aerich upgrade
 # Execute o comando abaixo para inspecionar o SQL gerado pelo Aerich
-   docker-compose exec backendunigrande aerich upgrade --dry-run
+   docker compose exec backendunigrande aerich upgrade --dry-run
 
 ### Para rodar testes execute o seguinte comando
 
 docker compose exec backendunigrande pytest -v
 
 # configurando o migrations com docker
-   docker-compose exec backendunigrande aerich init -t app.config.db.TORTOISE_ORM
-   docker-compose exec backendunigrande aerich init-db
+   docker compose exec backendunigrande aerich init -t app.config.db.TORTOISE_ORM
+   docker compose exec backendunigrande aerich init-db
 
 # configurando o migrations manualmente
 
